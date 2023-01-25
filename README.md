@@ -23,11 +23,10 @@ to create a ligther image caching most of theirs dependencies, to run the app fo
 ```curl -X GET localhost:8080``` -- it should return the following message: **Hello Docker World**
 ### spring-docker-native-image
 
-This application uses Spring boot 3 which supports native image and bings the reachability metadata support for a number of spring project which makes
-the build of native images and the process of AOT easier to developer who won't need to add the AOT annotations manually for most of the libraries 
-and projects used in spring boot application
-This project also uses packeto buildpack to build and containerized the native image into a docker image, it handle the building and create a lightwight
-image, which mean less configuration overhead for the developers
+This application uses Spring boot 3 which supports native image and provides the reachability metadata support for a number of spring project which makes
+the build of native images and the process of AOT easier for developers who won't need to add the AOT annotations manually for most of the libraries 
+and projects used in spring boot applications
+This project also uses packeto buildpack to build and containerized the native image into a docker image, it handles the building and creates a lightwight image, which means less configuration overhead for  developers.
 
 
 1. mvn -Pnative spring-boot:build-image  ( will create the docker image)
