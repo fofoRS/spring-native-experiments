@@ -19,6 +19,15 @@ to create a ligther image caching most of theirs dependencies, to run the app fo
 2. build image: docker build -t demo-spring-boot-docker .  - you might want to add you docker hub username
 3. create the container: docker run --rm -p 8080:8080 demo-spring-boot-docker
 
+How to debug a java containerized in docker
+
+- start the container and pass the JVM option to start it in debug mode
+  - ```docker run -e "JAVA_TOOL_OPTIONS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=*:5005" -p 8080:8080 -p 5005:5005 -t demo-spring-boot-docker```
+  - if working with intellij we could listen to the debugger server creating a remote JVM debug run configuration, as the follo image
+  
+  
+![Screen Shot 2023-01-26 at 12 10 33](https://user-images.githubusercontent.com/13155586/214915756-93f36ab6-b988-4a77-a620-bd3c8ac4621d.png)
+
 #### Testing
 ```curl -X GET localhost:8080``` -- it should return the following message: **Hello Docker World**
 ### spring-docker-native-image
